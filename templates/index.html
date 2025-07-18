@@ -1,0 +1,50 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skill-Gap Analyzer & Coach</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f0f2f5; }
+    form { background: #fff; padding: 20px; border-radius: 8px; max-width: 500px; margin: auto; }
+    label { display: block; margin-top: 10px; }
+    input, textarea { width: 100%; padding: 8px; margin-top: 4px; }
+    button { margin-top: 20px; padding: 10px 20px; background: #007BFF; color: #fff; border: none; cursor: pointer; }
+    .result { max-width: 800px; margin: 20px auto; background: #fff; padding: 20px; border-radius: 8px; }
+    .skills { font-weight: bold; color: #333; list-style-type: disc; padding-left: 20px; }
+    ul { margin-bottom: 1em; }
+  </style>
+</head>
+<body>
+  <h2 style="text-align:center">Skill-Gap Analyzer & Coach</h2>
+  <form action="/analyze" method="POST">
+    <label for="role">Current Role:</label>
+    <input type="text" name="role" required>
+
+    <label for="experience">Years of Experience:</label>
+    <input type="text" name="experience" required>
+
+    <label for="industries">Target Industries (comma-separated):</label>
+    <input type="text" name="industries" required>
+
+    <button type="submit">Analyze My Skill Gaps</button>
+  </form>
+
+  {% if result %}
+  <div class="result">
+    <h3>Top In-Demand Skills</h3>
+    <ul class="skills">
+      {% for skill in result.top_skills %}
+      <li>{{ skill }}</li>
+      {% endfor %}
+    </ul>
+
+    <h3>Personalized Coaching</h3>
+    <div style="white-space: pre-wrap; line-height: 1.6;">
+      {{ result.coaching }}
+    </div>
+  </div>
+  {% endif %}
+</body>
+</html>
