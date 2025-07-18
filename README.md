@@ -1,7 +1,3 @@
-Here’s a simple and clear `README.md` for your **Skill-Gap Analyzer & Coach** project:
-
----
-
 # 🧠 Skill-Gap Analyzer & Coach
 
 An AI-powered web app that identifies top in-demand skills based on your profile and recommends personalized learning resources using Google Gemini and LangGraph.
@@ -79,7 +75,6 @@ An AI-powered web app that identifies top in-demand skills based on your profile
 ├── app.py
 ├── templates/
 │   └── index.html
-├── static/ (optional for CSS/JS/images)
 └── README.md
 ```
 
